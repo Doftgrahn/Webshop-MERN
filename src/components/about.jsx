@@ -1,8 +1,11 @@
 import React from "react";
 
 const About = () => {
-    return <h1>About</h1>;
+    return (
+        <section className="about">
+            <h1>Random rant</h1>
+        </section>
+    );
 };
-
 
 export default About;

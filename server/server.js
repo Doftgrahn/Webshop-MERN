@@ -15,11 +15,16 @@ app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 app.get("/api", (req, res) => {
-    res.send("This is my api");
+    res.send("This is my api, go futher down the line!");
 });
 
 app.get("/api/coffe", (req, res) => {
     res.send(data);
+});
+
+app.get("/api/coffe/:id", (req, res) => {
+    const findParam = data.find(e => e.id === parseInt(req.params.id));
+    res.send(findParam);
 });
 
 app.post("/api/coffe", (req, res) => {
@@ -28,7 +33,8 @@ app.post("/api/coffe", (req, res) => {
         id: fakeId,
         name: req.body.name,
         size: req.body.size,
-        price: req.body.price
+        price: req.body.price,
+        imgURL: req.body.imgURL
     });
     res.send({
         fakeId,

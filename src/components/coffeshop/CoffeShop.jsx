@@ -4,7 +4,7 @@ import DisplayProducts from "./displayproducts";
 
 import {fetchAll} from "../../functions/fetch";
 
-const CoffeShop = () => {
+const CoffeShop = ({match}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -17,10 +17,12 @@ const CoffeShop = () => {
 
     return (
         <section>
-        <AddCoffe whenPostSuccess={whenPostSuccess} />
+            <h1>Add your Coffe!</h1>
+            <AddCoffe whenPostSuccess={whenPostSuccess} />
             <DisplayProducts
                 products={products}
                 whenPostSuccess={whenPostSuccess}
+                match={match}
             />
         </section>
     );

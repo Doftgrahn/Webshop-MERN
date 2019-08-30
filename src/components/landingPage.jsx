@@ -1,12 +1,12 @@
 import React from "react";
 
 const LandingPage = () => {
-
     return (
-        <main>
-            <h1>My WebShop</h1>
-            <p>Gives you that special feeling</p>
-
+        <main className="landingpage">
+            <h1>Coffe Brew</h1>
+            <p>
+                Gives you that special brew-feeling.
+            </p>
         </main>
     );
 };

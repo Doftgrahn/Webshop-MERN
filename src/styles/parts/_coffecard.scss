@@ -1,34 +1,84 @@
+section{
+    background: $color-red;
+    h1 {margin: 0;}
+}
+
+
+.coffecard__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    flex-wrap: wrap;
+    padding: 60px 20px;
+    background: $color-red;
+}
+
 .coffecard {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //align-items: center;
-    width: 320px;
+    align-items: center;
+    width: auto;
+    flex-wrap: wrap;
     margin: 10px;
     padding: 20px;
     background: $color-yellow;
-
+    box-shadow: 1px 1px 1px black;
+    @media screen and (min-width: 800px) {
+        width: calc(100%/4);
+    }
 
     &__wrapper {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        text-align: left;
+        flex-wrap: wrap;
+
+        .img__wrapper {
+            display: flex;
+            position: relative;
+            width: inherit;
+            height: 320px;
+            box-shadow: 3px 3px 3px black;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
 
         h3 {
             margin-bottom: 0;
             padding: 10px;
             width: 100%;
+            letter-spacing: 2px;
+            text-decoration: underline;
         }
 
         p {
-            margin: 0 10px;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px;
+        }
+
+        a {
+            color: black;
         }
     }
 
     button {
+        text-align: center;
+        background: white;
+        display: block;
         width: 50px;
         padding: 0 5px;
-        margin: 10px auto 0;
+        margin-top: 20px;
+        margin-left: auto;
     }
 }

@@ -1,9 +1,14 @@
 header {
-    padding:20px;
+    width: 100%;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    border-bottom: 20px solid $color-yellow;
+    background: $color-red;
 
     a {
         margin: 10px;
         text-decoration: none;
-        color:black;
+        color: black;
     }
 }

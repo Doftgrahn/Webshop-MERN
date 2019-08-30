@@ -2,7 +2,7 @@
 export const fetchAll = setState => {
     let url = "/api/coffe";
     if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 1337");
+        console.log("Running in DEV MODE on PORT 3001");
         url = "http://localhost:1337/api/coffe";
     } else {
         console.log("Running in PRODUCTION MODE");
@@ -14,11 +14,11 @@ export const fetchAll = setState => {
         });
 };
 
-//Post Request
-export const postRequest = (name, size, price, whenPostSuccess) => {
+//Post Request , needs 4 params to work. 3 states and one function
+export const postRequest = (name, size, price, imgURL, whenPostSuccess) => {
     let url = "/api/coffe";
     if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 1337");
+        console.log("Running in DEV MODE on PORT 3001");
         url = "http://localhost:1337/api/coffe";
     } else {
         console.log("Running in PRODUCTION MODE");
@@ -31,7 +31,8 @@ export const postRequest = (name, size, price, whenPostSuccess) => {
         body: JSON.stringify({
             name,
             size,
-            price
+            price,
+            imgURL
         })
     };
     fetch(url, settings)
