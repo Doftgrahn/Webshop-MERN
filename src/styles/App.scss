@@ -5,6 +5,7 @@
 @import './parts/coffeshop.scss';
 @import './parts/addCoffe.scss';
 @import './parts/coffecard.scss';
+@import './parts/singlecoffe.scss';
 
 @import './parts/landingpage.scss';
 @import './parts/about.scss';
@@ -15,4 +16,5 @@
     position: relative;
     text-align: center;
     overflow: hidden;
+    background: $color-red;
 }

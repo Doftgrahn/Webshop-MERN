@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 
 import {Route} from "react-router-dom";
 
+import {fetchSpecificCoffe} from "../../functions/fetch.jsx";
+
 const SingeCoffe = ({data, match}) => {
     return (
         <div>
@@ -12,31 +14,33 @@ const SingeCoffe = ({data, match}) => {
 
 export default SingeCoffe;
 
-const Coffe = ({match}) => {
+const Coffe = ({match, history}) => {
     const [coffeProduct, setCoffeProduct] = useState([]);
     useEffect(
         () => {
-            let url = `/api/coffe/${match.params.id}`;
-            if (process.env.NODE_ENV !== "production") {
-                console.log("Running in DEV MODE on PORT 3001");
-                url = `http://localhost:1337/api/coffe/${match.params.id}/`;
-            } else {
-                console.log("Running in PRODUCTION MODE");
-            }
-            fetch(url)
-                .then(resp => resp.json())
-                .then(respjson => {
-                    setCoffeProduct(respjson);
-                });
+            fetchSpecificCoffe(match, setCoffeProduct);
         },
-        [match.params.id]
+        [match]
     );
 
+    const toBack = () => history.goBack();
+
     return (
-        <div>
-            <p>{coffeProduct.name}</p>
-            <p>{coffeProduct.price}</p>
-            <p>{coffeProduct.size}</p>
+        <div className="singleCoffe">
+            <div className="singleCoffe__container">
+                <div className="img_container">
+                    <img src={coffeProduct.imgURL} alt={coffeProduct.name} />
+                </div>
+                <div>
+                    <h3>{coffeProduct.name}</h3>
+                    <p>{coffeProduct.price}</p>
+                    <p>{coffeProduct.size}</p>
+                    <p>{coffeProduct.info}</p>
+                </div>
+                <div>
+                    <button onClick={toBack}>Go Back</button>
+                </div>
+            </div>
         </div>
     );
 };

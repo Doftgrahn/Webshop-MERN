@@ -4,9 +4,7 @@ const LandingPage = () => {
     return (
         <main className="landingpage">
             <h1>Coffe Brew</h1>
-            <p>
-                Gives you that special brew-feeling.
-            </p>
+            <p>Gives you that special brew-feeling.</p>
         </main>
     );
 };

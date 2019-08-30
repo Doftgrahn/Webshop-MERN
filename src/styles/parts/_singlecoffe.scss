@@ -1,0 +1,51 @@
+.singleCoffe {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        background: $color-yellow;
+        margin: 0 auto;
+        width: 520px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-shadow: 3px 3px 3px black;
+
+        .img_container {
+            display: flex;
+            margin: 0 auto;
+            position: relative;
+            width: 320px;
+            height: 320px;
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        p {
+            margin: 10px;
+        }
+    }
+}

@@ -1,8 +1,10 @@
-section{
+section {
     background: $color-red;
-    h1 {margin: 0;}
-}
 
+    h1 {
+        margin: 0;
+    }
+}
 
 .coffecard__container {
     display: flex;
@@ -26,8 +28,19 @@ section{
     padding: 20px;
     background: $color-yellow;
     box-shadow: 1px 1px 1px black;
+    transition: 0.2;
+    animation: fade 0.4s alternate;
     @media screen and (min-width: 800px) {
         width: calc(100%/4);
+    }
+    @keyframes fade {
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 
     &__wrapper {

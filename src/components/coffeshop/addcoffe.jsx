@@ -7,7 +7,6 @@ const AddCoffe = ({whenPostSuccess}) => {
     const [price, setPrize] = useState("");
     const [imgURL, setImgURL] = useState("");
 
-    console.log(imgURL);
     const submit = () => {
         postRequest(name, size, price, imgURL, whenPostSuccess);
     };
