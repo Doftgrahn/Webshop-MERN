@@ -13,7 +13,7 @@ const CoffeCard = ({product, deleteProduct, whenPostSuccess, match}) => {
                 <h3>{product.name}</h3>
                 <p>size: {product.size}</p>
                 <p>price: {product.price}</p>
-                <Link to={`/single/${product.id}`}>
+                <Link to={`/coffeshop/single/${product.id}`}>
                     Check out more about {product.name}
                 </Link>
             </div>

@@ -12,8 +12,8 @@ const Routing = () => {
         <Switch>
             <Route exact={true} path="/" component={LandingPage} />
             <Route path="/about" component={About} />
-            <Route path="/coffeshop" component={CoffeShop} />
-            <Route path="/single" component={SingleCoffe} />
+            <Route exact={true} path="/coffeshop" component={CoffeShop} />
+            <Route path="/coffeshop/single" component={SingleCoffe} />
         </Switch>
     );
 };
