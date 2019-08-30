@@ -1,0 +1,14 @@
+.addCoffe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    input {
+        padding: 5px;
+        margin: 0 10px;
+    }
+    button {
+        padding: 0 5px;
+    }
+}
