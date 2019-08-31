@@ -10,17 +10,18 @@ const CoffeCard = ({product, deleteProduct, whenPostSuccess, match}) => {
                 <div className="img__wrapper">
                     <img src={product.imgURL} alt={product.name} />
                 </div>
+
                 <h3>{product.name}</h3>
-                <p>size: {product.size}</p>
-                <p>price: {product.price}</p>
-                <Link to={`/coffeshop/single/${product.id}`}>
+                <div className="coffecard__wrapper-info">
+                    <p><strong>size:</strong> {product.size}</p>
+                    <p><strong>price:</strong> {product.price}</p>
+                </div>
+                <Link to={`/coffeshop/single/${product._id}`}>
                     Check out more about {product.name}
                 </Link>
             </div>
-            <button onClick={() => deleteRequest(product.id, whenPostSuccess)}>
-                <span aria-label="Delete" role="img">
-                    ❌
-                </span>
+            <button onClick={() => deleteRequest(product._id, whenPostSuccess)}>
+                Remove
             </button>
         </div>
     );

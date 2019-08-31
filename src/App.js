@@ -3,16 +3,15 @@ import "./styles/App.scss";
 import {BrowserRouter as Router} from "react-router-dom";
 
 import Header from "./components/header";
-
 import Routing from "./routes/routing";
+import Footer from './components/footer';
 const App = () => {
     return (
         <div className="App">
             <Router>
-                <div>
                     <Header />
                     <Routing  />
-                </div>
+                    <Footer/>
             </Router>
         </div>
     );

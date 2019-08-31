@@ -64,7 +64,6 @@ export const postRequest = (name, size, price, imgURL, whenPostSuccess) => {
 
 // Delete needs id and function to work( The functions gets new items )
 export const deleteRequest = (id, whenPostSuccess) => {
-    console.log(id);
     let url = "/api/coffe";
     if (process.env.NODE_ENV !== "production") {
         console.log("Running in DEV MODE on PORT 1337");
@@ -79,7 +78,7 @@ export const deleteRequest = (id, whenPostSuccess) => {
             "Access-Control-Origin": "*"
         },
         body: JSON.stringify({
-            id
+            _id: id
         })
     };
     fetch(url, settings)

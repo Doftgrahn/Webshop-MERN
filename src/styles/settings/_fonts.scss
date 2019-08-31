@@ -1,26 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Pangolin&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:900&display=swap');
 
 * {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
+    color:$color-black;
 }
 
 h2 {
     font-size: 30px;
     //font-family: 'Pangolin', cursive;
-    font-family: 'Carter One', cursive;
+//    font-family: 'Carter One', cursive;
+    font-family: 'Maven Pro', sans-serif;
+
 }
 
 h3 {
     font-size: 22px;
     //font-family: 'Pangolin', cursive;
-    font-family: 'Carter One', cursive;
+//    font-family: 'Carter One', cursive;
+    font-family: 'Maven Pro', sans-serif;
 }
 
 h1 {
-    font-size: 45px;
+    text-shadow: -1px -1px 0 $color-black, 1px -1px 0 $color-black, -1px 1px 0 $color-black, 1px 1px 0 $color-black;
+    //color:$color-white;
+    font-size: 80px;
+    padding: 20px 0;
     //font-family: 'Pangolin', cursive;
-    font-family: 'Carter One', cursive;
+//    font-family: 'Carter One', cursive;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+strong {
+    font-weight: 800;
+}
+
+a {
+    color:$color-black;
 }

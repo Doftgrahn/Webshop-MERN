@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
-//const {MongoClient} = require("mongodb");
+const {MongoClient, ObjectId} = require("mongodb");
 
-let {data} = require("./data");
+let {data, url, settings} = require("./data");
+const dbname = "shop",
+    dbcol = "coffe";
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -19,38 +21,124 @@ app.get("/api", (req, res) => {
 });
 
 app.get("/api/coffe", (req, res) => {
-    res.send(data);
+    MongoClient.connect(url, settings, (error, client) => {
+            if (error) {
+                console.error("Somethine went wrong");
+                throw error;
+            }
+
+            let collection = client.db(dbname).collection(dbcol);
+
+            collection.find({}).toArray((err, docs) => {
+                if (err) {
+                    console.error("Could not convert to array");
+                    throw err;
+                }
+                //console.log("found this stuff", docs);
+                res.send(docs);
+                client.close();
+            });
+        }
+    );
 });
 
 app.get("/api/coffe/:id", (req, res) => {
-    const findParam = data.find(e => e.id === parseInt(req.params.id));
-    res.send(findParam);
+    const params = req.params.id;
+
+MongoClient.connect(url,settings, (error, client) => {
+    if(error) {
+        console.error('FETCH SINGLECOFFE went wrong');
+        throw error;
+    }
+
+    let collection = client.db(dbname).collection(dbcol);
+    const query = { "_id" : ObjectId(params) };
+
+    collection.find(query).toArray((err, docs) => {
+        
+        console.log(docs);
+        res.send(docs);
+    })
+})
+
 });
 
 app.post("/api/coffe", (req, res) => {
-    const fakeId = data.length + 1;
-    data.push({
-        id: fakeId,
+
+MongoClient.connect(url, settings, (error, client) => {
+
+    const newData =[{
         name: req.body.name,
         size: req.body.size,
         price: req.body.price,
         imgURL: req.body.imgURL
-    });
+    }];
+
+    if(error) {
+        console.error('Something went wrong');
+        throw error;
+    }
+
+    let collection = client.db(dbname).collection(dbcol);
+
+    collection.insertMany(newData, (err, result) => {
+        if(err) {
+            console.error('Could not post');
+            throw err;
+        }
+        console.log('inserted stuff');
+        client.close();
+
+    })
+})
+
+
     res.send({
-        fakeId,
         success: true
     });
 });
 
 app.delete("/api/coffe", (req, res) => {
-    let body = req.body.id;
-    let response = data.filter(e => e.id !== body);
-    data = response;
+
+MongoClient.connect(url, settings, (error, client) => {
+    let body = req.body._id;
+console.log('THIS IS DELETE ' + body);
+
+    if(error) {
+        console.error('Could not connect on DELETE');
+        throw error;
+    }
+    let collection = client.db(dbname).collection(dbcol);
+
+    let query = { _id: ObjectId(body)};
+
+    collection.deleteOne(query, (err, result) => {
+        if(err) {
+            console.error('Could not delete');
+            throw err;
+        }
+        console.log('1 Document Deleted');
+        client.close()
+    })
+
     res.json({
-        response,
+        _id: body,
         success: true
     });
+    });
 });
+
+
+
+/*
+app.get("/*", (req, res) => {
+    res.sendFile(`${__dirname}/../build/index.html`, err => {
+        if (err) {
+            res.status(500).send(err);
+        }
+    });
+});
+*/
 
 const port = process.env.PORT || 1337;
 

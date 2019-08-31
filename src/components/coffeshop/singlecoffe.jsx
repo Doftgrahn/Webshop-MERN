@@ -16,6 +16,7 @@ export default SingeCoffe;
 
 const Coffe = ({match, history}) => {
     const [coffeProduct, setCoffeProduct] = useState([]);
+
     useEffect(
         () => {
             fetchSpecificCoffe(match, setCoffeProduct);
@@ -25,22 +26,22 @@ const Coffe = ({match, history}) => {
 
     const toBack = () => history.goBack();
 
-    return (
-        <div className="singleCoffe">
-            <div className="singleCoffe__container">
-                <div className="img_container">
-                    <img src={coffeProduct.imgURL} alt={coffeProduct.name} />
-                </div>
-                <div>
-                    <h3>{coffeProduct.name}</h3>
-                    <p>{coffeProduct.price}</p>
-                    <p>{coffeProduct.size}</p>
-                    <p>{coffeProduct.info}</p>
-                </div>
-                <div>
-                    <button onClick={toBack}>Go Back</button>
-                </div>
+    const renderSingleCoffe = coffeProduct.map(coffe => (
+        <div key={coffe._id} className="singleCoffe__container">
+            <div className="img_container">
+                <img src={coffe.imgURL} alt={coffeProduct.name} />
             </div>
+            <div>
+                <h3>{coffe.name}</h3>
+                <p>{coffe.price}</p>
+                <p>{coffe.size}</p>
+                <p>{coffe.info}</p>
+            </div>
+            <button onClick={toBack}>Go Back</button>
+
+            <div />
         </div>
-    );
+    ));
+
+    return <div className="singleCoffe">{renderSingleCoffe}</div>;
 };

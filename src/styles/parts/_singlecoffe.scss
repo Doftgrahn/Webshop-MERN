@@ -1,13 +1,15 @@
 .singleCoffe {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    background: $color-dark-beigie;
 
     &__container {
-        background: $color-yellow;
+        background: $color-light-beigie;
         margin: 0 auto;
         width: 520px;
         display: flex;
@@ -15,16 +17,15 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        box-shadow: 3px 3px 3px black;
-
+        //padding: 20px;
+        //box-shadow: 3px 3px 3px black;
         .img_container {
             display: flex;
             margin: 0 auto;
             position: relative;
-            width: 320px;
+            width: 100%;
             height: 320px;
-
+            //box-shadow: 3px 3px 3px $color-black;
             img {
                 position: absolute;
                 width: 100%;
@@ -41,11 +42,34 @@
         }
 
         h3 {
+            background: $color-middle-beigie;
+            width: 100%;
             margin: 0;
+            font-size: 32px;
+            letter-spacing: 2px;
         }
 
         p {
             margin: 10px;
+        }
+    }
+
+    button {
+        text-align: center;
+        background: transparent;
+        border: 0;
+        color: $color-black;
+        font-weight: bold;
+        font-family: 'Carter One', cursive;
+        display: block;
+        padding: 0 5px;
+        margin-left: auto;
+        //position: absolute;
+        right: 20px;
+        bottom: 0;
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 }

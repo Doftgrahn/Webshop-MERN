@@ -6,7 +6,7 @@ const DisplayProducts = ({products, whenPostSuccess, match}) => {
         <CoffeCard
             match={match}
             whenPostSuccess={whenPostSuccess}
-            key={data.id}
+            key={data._id}
             product={data}
         />
     ));
