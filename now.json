@@ -1,10 +1,14 @@
+
+
+
 {
   "version": 1,
   "name": "mearnwebshop",
   "public": false,
+  "builds": [
     { "src": "package.json", "use": "@now/static-build" },
     { "src": "/server/server.js", "use": "@now/node-server" }
-  ],
+],
   "routes": [
     { "src": "/server/.*", "dest": "/server/server.js" },
     { "src": "^/static/(.*)", "dest": "/static/$1" },
