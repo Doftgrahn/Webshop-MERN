@@ -19,7 +19,6 @@
     "server": "nodemon --watch server server/server.js",
     "now-build": "react-scripts build && mv build dist"
   },
-  "proxy": "http://localhost:1337/",
   "eslintConfig": {
     "extends": "react-app"
   },

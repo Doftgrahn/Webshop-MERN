@@ -7,7 +7,7 @@
   ],
   "routes": [
     { "src": "/server/.*", "dest": "/api/server.js" },
-    { "src": "^/build/(.*)", "dest": "/build/$1" },
+    { "src": "^/static/(.*)", "dest": "/static/$1" },
     { "src": ".*", "dest": "/index.html" }
   ]
 }
