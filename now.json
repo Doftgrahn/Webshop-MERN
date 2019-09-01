@@ -6,7 +6,7 @@
     { "src": "/api/server.js", "use": "@now/node-server" }
   ],
   "routes": [
-    { "src": "/servier/.*", "dest": "/api/server.js" },
+    { "src": "/server/.*", "dest": "/api/server.js" },
     { "src": "^/static/(.*)", "dest": "/static/$1" },
     { "src": ".*", "dest": "/index.html" }
   ]
