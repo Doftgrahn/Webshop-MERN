@@ -102,7 +102,8 @@ let data = [
     }
 ];
 
-
+const url =
+    "mongodb+srv://doftgrahn:apelsin@shop-iwgny.mongodb.net/test?retryWrites=true&w=majority";
 
 const settings = {useNewUrlParser: true, useUnifiedTopology: true};
 
