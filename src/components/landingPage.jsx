@@ -6,7 +6,9 @@ const LandingPage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        fetchAll(setImages);
+         let fetchmyStuff  = fetchAll(setImages);
+
+         return () => fetchmyStuff
     }, []);
 
     const getPictures = images.sort(s => 0.5 - Math.random()).map(e => (

@@ -4,6 +4,8 @@ import {Route} from "react-router-dom";
 
 import {fetchSpecificCoffe} from "../../functions/fetch.jsx";
 
+
+// Holder for Page, but default exported, holds Coffe.
 const SingeCoffe = ({data, match}) => {
     return (
         <div>
@@ -14,6 +16,9 @@ const SingeCoffe = ({data, match}) => {
 
 export default SingeCoffe;
 
+
+
+// Main Component
 const Coffe = ({match, history}) => {
     const [coffeProduct, setCoffeProduct] = useState([]);
 

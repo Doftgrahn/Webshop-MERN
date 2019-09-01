@@ -55,7 +55,7 @@ MongoClient.connect(url,settings, (error, client) => {
     const query = { "_id" : ObjectId(params) };
 
     collection.find(query).toArray((err, docs) => {
-        
+
         console.log(docs);
         res.send(docs);
     })
@@ -66,27 +66,30 @@ MongoClient.connect(url,settings, (error, client) => {
 app.post("/api/coffe", (req, res) => {
 
 MongoClient.connect(url, settings, (error, client) => {
-
-    const newData =[{
-        name: req.body.name,
-        size: req.body.size,
-        price: req.body.price,
-        imgURL: req.body.imgURL
-    }];
-
     if(error) {
         console.error('Something went wrong');
         throw error;
     }
 
-    let collection = client.db(dbname).collection(dbcol);
+    const collection = client.db(dbname).collection(dbcol);
+
+    const newData =[{
+
+        name: req.body.name,
+        size: req.body.size,
+        price: req.body.price,
+        info: req.body.info,
+        imgURL: req.body.imgURL
+
+    }];
 
     collection.insertMany(newData, (err, result) => {
+
         if(err) {
             console.error('Could not post');
             throw err;
         }
-        console.log('inserted stuff');
+
         client.close();
 
     })

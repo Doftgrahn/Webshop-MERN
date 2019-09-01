@@ -8,7 +8,9 @@ const CoffeShop = ({match}) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetchAll(setProducts);
+        let fetch = fetchAll(setProducts);
+
+        return () => fetch;
     }, []);
 
     const whenPostSuccess = json => {

@@ -8,6 +8,7 @@ export const fetchAll = setState => {
     } else {
         console.log("Running in PRODUCTION MODE");
     }
+
     fetch(url)
         .then(resp => resp.json())
         .then(respjson => {
@@ -16,7 +17,7 @@ export const fetchAll = setState => {
 };
 
 //Fetch for Specific Coffe-Types
-// First parameter is match props sent from route, second one is the state that should be used to store value.
+// First parameter is match props sent from router (Param to query, that is set in SingeCoffe.jsx), second one is the SetState [Hook] that should be used to store value.
 
 export const fetchSpecificCoffe = (match, setState) => {
     let url = `/api/coffe/${match.params.id}`;
