@@ -3,7 +3,7 @@
   "name": "mearnwebshop",
   "public": false,
     { "src": "package.json", "use": "@now/static-build" },
-    { "src": "/api/server.js", "use": "@now/node-server" }
+    { "src": "/server/server.js", "use": "@now/node-server" }
   ],
   "routes": [
     { "src": "/server/.*", "dest": "/api/server.js" },
