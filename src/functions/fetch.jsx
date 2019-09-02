@@ -2,13 +2,6 @@
 //Needs a parameter for which state to use.
 export const fetchAll = setState => {
     let url = "/api/coffe";
-    if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 3001");
-        url = "http://localhost:1337/api/coffe";
-    } else {
-        console.log("Running in PRODUCTION MODE");
-    }
-
     fetch(url)
         .then(resp => resp.json())
         .then(respjson => {
@@ -21,12 +14,7 @@ export const fetchAll = setState => {
 
 export const fetchSpecificCoffe = (match, setState) => {
     let url = `/api/coffe/${match.params.id}`;
-    if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 3001");
-        url = `http://localhost:1337/api/coffe/${match.params.id}/`;
-    } else {
-        console.log("Running in PRODUCTION MODE");
-    }
+
     fetch(url)
         .then(resp => resp.json())
         .then(respjson => {
@@ -34,15 +22,16 @@ export const fetchSpecificCoffe = (match, setState) => {
         });
 };
 
-//Post Request , needs 4 params to work. 3 states and one function
-export const postRequest = (name, size, price, imgURL, whenPostSuccess) => {
+//Post Request , needs 5 params to work. 4 states and one function
+export const postRequest = (
+    name,
+    size,
+    price,
+    imgURL,
+    info,
+    whenPostSuccess
+) => {
     let url = "/api/coffe";
-    if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 3001");
-        url = "http://localhost:1337/api/coffe";
-    } else {
-        console.log("Running in PRODUCTION MODE");
-    }
     const settings = {
         method: "POST",
         headers: {
@@ -52,7 +41,8 @@ export const postRequest = (name, size, price, imgURL, whenPostSuccess) => {
             name,
             size,
             price,
-            imgURL
+            imgURL,
+            info
         })
     };
     fetch(url, settings)
@@ -66,12 +56,7 @@ export const postRequest = (name, size, price, imgURL, whenPostSuccess) => {
 // Delete needs id and function to work( The functions gets new items )
 export const deleteRequest = (id, whenPostSuccess) => {
     let url = "/api/coffe";
-    if (process.env.NODE_ENV !== "production") {
-        console.log("Running in DEV MODE on PORT 1337");
-        url = "http://localhost:1337/api/coffe";
-    } else {
-        console.log("Running in PRODUCTION MODE");
-    }
+
     const settings = {
         method: "DELETE",
         headers: {
@@ -88,4 +73,29 @@ export const deleteRequest = (id, whenPostSuccess) => {
             whenPostSuccess(resp);
         })
         .catch(err => console.error("Something went wrong", err));
+};
+
+export const updateRequest = (name,size, price,imgURL,info, _id, whenPostSuccess) => {
+    let url = "/api/coffe";
+    const settings = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            _id,
+            name,
+            size,
+            price,
+            imgURL,
+            info
+        })
+    }
+
+    fetch(url, settings)
+        .then(resp => resp.json())
+        .then((result) => {
+            whenPostSuccess(result)
+            console.log("Worked", result)})
+        .catch(err => console.error("Didnt PUT", err));
 };

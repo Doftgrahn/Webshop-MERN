@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
 
+import Loader from "../loader/loader";
+
 import {fetchAll} from "../functions/fetch";
 
 const LandingPage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-         let fetchmyStuff  = fetchAll(setImages);
+        let fetchmyStuff = fetchAll(setImages);
 
-         return () => fetchmyStuff
+        return () => fetchmyStuff;
     }, []);
 
     const getPictures = images.sort(s => 0.5 - Math.random()).map(e => (
@@ -17,7 +19,7 @@ const LandingPage = () => {
         </div>
     ));
 
-/*
+    /*
     useEffect(
         () => {
              let interval =  setInterval(() => {
@@ -33,7 +35,10 @@ const LandingPage = () => {
         <main className="landingpage">
             <h1>Coffe Brew</h1>
             <p>Gives you that special brew-feeling.</p>
-            <div className="img__container">{getPictures}</div>
+
+            <div className="img__container">
+                {images.length === 0 ? <Loader /> : getPictures}
+            </div>
         </main>
     );
 };

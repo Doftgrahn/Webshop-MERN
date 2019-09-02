@@ -1,40 +1,152 @@
+.active {
+    left: 0px;
+    top: 40px;
+}
+
+.notActive {
+    left: -2000px;
+    top: 300px;
+}
+
 .addCoffe {
-    background: $color-dark-beigie;
+    border: 20px solid $color-light-beigie;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: 0.4s ease;
+    background: $color-middle-beigie;
     display: flex;
-    align-items: center;
+    //align-items: center;
     justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
-    padding: 20px;
+    position: fixed;
+    z-index: 1;
+    padding: 10px;
+    box-shadow: 5px 5px 5px $color-black;
 
-    input {
-        background: $color-white;
-        padding: 5px 10px;
-        margin: 0 10px;
-        outline: none;
-        border: 1px solid $color-black;
-        border-radius: 5px;
+    .close_btn {
+        text-align: center;
+        background: transparent;
+        border: 0;
+        color: $color-black;
+        font-weight: bold;
+        font-family: 'Carter One', cursive;
+        display: block;
+        padding: 0 5px;
+        margin-left: auto;
+        //position: absolute;
+        right: 20px;
+        bottom: 0;
 
-        &::placeholder {
-            text-align: left;
-            font-size: 16px;
+        &:hover {
+            text-decoration: underline;
         }
+        background: transparent;
+        border: 0;
+        outline: none;
+        margin-top: 0;
+        margin-left: auto;
+        border-radius: 5px;
+        //background: $color-white;
     }
 
-    select {
-        padding: 5px 10px;
-        background: $color-white;
-        margin:0 10px;
-        border: 1px solid $color-black;
-    }
-
-    .btn_container {
-        margin-top: 20px;
-        width: 100%;
+    &__wrapper {
         display: flex;
+        flex-direction: column;
+        max-width: 400px;
         justify-content: center;
+        align-items: center;
 
-        button {
-            padding: 0 5px;
+        h3 {
+            margin: 0;
+        }
+
+        .name {
+            width: 100%;
+        }
+
+        .picture {
+            width: 100%;
+        }
+
+        .priceAndSize {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            //justify-content: center;
+            width: 100%;
+
+            & > * {
+                flex: 1;
+            }
+        }
+
+        input {
+            background: $color-white;
+            padding: 5px 10px;
+            margin-top: 10px;
+            outline: none;
+            border: 1px solid $color-black;
+            border-radius: 5px;
+            width: 100%;
+
+            &::placeholder {
+                text-align: left;
+                font-size: 16px;
+            }
+        }
+
+        select {
+            padding: 5px 10px;
+            background: $color-white;
+            margin: 10px 10px 0;
+            border: 1px solid $color-black;
+            height: 100%;
+            width: 100%;
+        }
+
+        textarea {
+            outline: none;
+            display: block;
+            margin-top: 20px;
+            width: 100%;
+            height: 260px;
+            padding: 5px;
+            resize: none;
+            background: $color-white;
+            border-radius: 5px;
+
+            &::placeholder {
+                text-align: left;
+                font-size: 16px;
+            }
+        }
+
+        .btn_container {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            button {
+                text-align: center;
+                background: transparent;
+                border: 0;
+                color: $color-black;
+                font-weight: bold;
+                font-family: 'Carter One', cursive;
+                display: block;
+                padding: 0 5px;
+                margin-left: auto;
+                position: absolute;
+                right: 20px;
+                bottom: 0;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }

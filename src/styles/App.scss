@@ -6,16 +6,17 @@
 @import './parts/addCoffe.scss';
 @import './parts/coffecard.scss';
 @import './parts/singlecoffe.scss';
-
 @import './parts/landingpage.scss';
+@import './parts/editCoffe.scss';
 @import './parts/about.scss';
 @import './parts/footer.scss';
-
-
+@import './general/loader.scss';
 
 .App {
+    width: 100%;
+    min-height: 100vh;
     position: relative;
     text-align: center;
     overflow: hidden;
-    background: $color-red;
+    background: $color-dark-beigie;
 }

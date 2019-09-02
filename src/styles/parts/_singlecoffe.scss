@@ -5,19 +5,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     background: $color-dark-beigie;
 
     &__container {
         background: $color-light-beigie;
         margin: 0 auto;
-        width: 520px;
+        max-width: 520px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        //padding: 20px;
         //box-shadow: 3px 3px 3px black;
         .img_container {
             display: flex;

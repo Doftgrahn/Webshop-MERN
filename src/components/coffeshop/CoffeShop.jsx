@@ -2,10 +2,13 @@ import React, {useEffect, useState} from "react";
 import AddCoffe from "./addcoffe";
 import DisplayProducts from "./displayproducts";
 
+import Loader from '../../loader/loader';
+
 import {fetchAll} from "../../functions/fetch";
 
 const CoffeShop = ({match}) => {
     const [products, setProducts] = useState([]);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         let fetch = fetchAll(setProducts);
@@ -17,15 +20,27 @@ const CoffeShop = ({match}) => {
         if (json.success || json.status === 200) fetchAll(setProducts);
     };
 
+    const toggle = () => setIsVisible(!isVisible);
+
+    const hideForms = () => setIsVisible(false);
+
     return (
         <section>
-            <h1>Add your Coffe!</h1>
-            <AddCoffe whenPostSuccess={whenPostSuccess} />
-            <DisplayProducts
+            <button className="showform" onClick={toggle}>
+                Show Form
+            </button>
+            <AddCoffe
+                toggle={toggle}
+                hideForms={hideForms}
+                isVisible={isVisible}
+                whenPostSuccess={whenPostSuccess}
+            />
+
+            {products.length === 0 ? <Loader/> :  <DisplayProducts
                 products={products}
                 whenPostSuccess={whenPostSuccess}
                 match={match}
-            />
+            />}
         </section>
     );
 };

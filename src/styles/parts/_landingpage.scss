@@ -10,13 +10,18 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
 
         .img_wrapper {
+            width: 100%;
+            height: 100%;
             height: 240px;
             width: 320px;
             position: relative;
-            margin: 20px;
+            margin: 10px;
+            display: flex;
             flex-wrap: wrap;
+
             animation: 0.4s fade alternate;
             @keyframes fade {
                 0% {

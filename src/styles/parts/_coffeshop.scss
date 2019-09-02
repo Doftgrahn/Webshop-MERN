@@ -6,3 +6,22 @@
     width: 100%;
     max-width: 1100px;
 }
+
+.showform {
+    text-align: center;
+    background: transparent;
+    border: 0;
+    color: $color-black;
+    font-weight: bold;
+    font-family: 'Carter One', cursive;
+    display: block;
+    padding: 0 5px;
+    //margin-left: auto;
+    //position: absolute;
+    right: 20px;
+    bottom: 0;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

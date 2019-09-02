@@ -8,6 +8,15 @@
     font-size: 18px;
     color:$color-black;
 }
+input {
+    &::placeholder {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+
+
+
+    }
+}
 
 h2 {
     font-size: 30px;
