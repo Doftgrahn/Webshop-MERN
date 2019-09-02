@@ -6,6 +6,9 @@ module.exports = (express, app) => {
         next();
     });
 
-    app.use(express.static(`${__dirname}/../client/build`));
+    app.use(express.static(`${__dirname}/../build`));
+
+    app.use(express.static(`${__dirname}/../dist`));
+
     app.use(express.json());
 };

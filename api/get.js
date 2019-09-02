@@ -7,6 +7,7 @@ module.exports = app => {
         res.send("This is my api, go futher down the line!");
     });
 
+    
     // Auth
 
     app.get("/api/auth", (req, res) => {

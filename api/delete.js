@@ -1,8 +1,7 @@
 const {MongoClient, ObjectId} = require("mongodb");
 let {url, settings, dbname, dbcol} = require("./config");
 
-
-module.exports = (app) => {
+module.exports = app => {
     app.delete("/api/coffe", (req, res) => {
         MongoClient.connect(
             url,
@@ -35,4 +34,4 @@ module.exports = (app) => {
             }
         );
     });
-}
+};
