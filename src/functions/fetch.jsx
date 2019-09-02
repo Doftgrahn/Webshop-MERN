@@ -75,6 +75,9 @@ export const deleteRequest = (id, whenPostSuccess) => {
         .catch(err => console.error("Something went wrong", err));
 };
 
+
+// PUT REQUEST
+
 export const updateRequest = (name,size, price,imgURL,info, _id, whenPostSuccess) => {
     let url = "/api/coffe";
     const settings = {
@@ -96,6 +99,6 @@ export const updateRequest = (name,size, price,imgURL,info, _id, whenPostSuccess
         .then(resp => resp.json())
         .then((result) => {
             whenPostSuccess(result)
-            console.log("Worked", result)})
+            console.log("Worked PUT", result)})
         .catch(err => console.error("Didnt PUT", err));
 };

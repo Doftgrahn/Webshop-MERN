@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import AddCoffe from "./addcoffe";
 import DisplayProducts from "./displayproducts";
 
-import Loader from '../../loader/loader';
+import Loader from "../../loader/loader";
 
 import {fetchAll} from "../../functions/fetch";
 
@@ -36,11 +36,15 @@ const CoffeShop = ({match}) => {
                 whenPostSuccess={whenPostSuccess}
             />
 
-            {products.length === 0 ? <Loader/> :  <DisplayProducts
-                products={products}
-                whenPostSuccess={whenPostSuccess}
-                match={match}
-            />}
+            {products.length === 0 ? (
+                <Loader />
+            ) : (
+                <DisplayProducts
+                    products={products}
+                    whenPostSuccess={whenPostSuccess}
+                    match={match}
+                />
+            )}
         </section>
     );
 };

@@ -15,14 +15,16 @@ const AddCoffe = ({whenPostSuccess, isVisible, hideForms}) => {
         setPrize("");
         setImgURL("");
         setInfo("");
+        hideForms();
     };
 
     return (
-        <section
-        className={`addCoffe ${isVisible ? "active" : "notActive"}`}>
-        <button onClick={hideForms}  className="close_btn">Close</button>
+        <section className={`addCoffe ${isVisible ? "active" : "notActive"}`}>
+            <button onClick={hideForms} className="close_btn">
+                Close
+            </button>
             <div className="addCoffe__wrapper">
-            <h3>Add Your Coffe!</h3>
+                <h3>Add Your Coffe!</h3>
                 <div className="name">
                     <input
                         type="text"
