@@ -7,7 +7,6 @@ module.exports = app => {
         res.send("This is my api, go futher down the line!");
     });
 
-    
     // Auth
 
     app.get("/api/auth", (req, res) => {
@@ -28,7 +27,9 @@ module.exports = app => {
 
                 let collection = client.db(dbname).collection(dbcol);
 
-                collection.find({}).toArray((err, docs) => {
+                const sortIt = { name: 1 }
+
+                collection.find({}).sort(sortIt).toArray((err, docs) => {
                     if (err) {
                         console.error("Could not convert to array");
                         throw err;

@@ -1,25 +1,7 @@
-:root {
-    --blue: #4284f4;
-    --red: #eb4236;
-    --yellow: #fcbc05;
-    --green: #34a854;
-    --size: 1rem;
-    font-size: 2.5rem;
-}
-
-*,
-*::after,
-*::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial;
-}
-
 .google-loader {
     margin: 0 auto;
     position: relative;
-    top: 400px;
+    top: 350px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -30,9 +12,9 @@
 
 .dot {
     margin: 10px;
-    background-color: grey;
-    width: var(--size);
-    height: var(--size);
+    background-color: $color-white;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
 }
 
@@ -41,26 +23,26 @@
 }
 
 .blue {
-    background-color: var(--blue);
+    background-color: $color-black;
     animation-delay: 0.2s;
 }
 
 .red {
-    background-color: var(--red);
+    background-color: $color-white;
     animation-delay: 0.4s;
 }
 
 .yellow {
-    background-color: var(--yellow);
+    background-color: $color-middle-beigie;
     animation-delay: 0.6s;
 }
 
 .green {
-    background-color: var(--green);
+    background-color: $color-light-beigie;
     animation-delay: 0.8s;
 }
 @keyframes ani {
     to {
-        transform: translateY(1rem);
+        transform: translateY(10rem);
     }
 }

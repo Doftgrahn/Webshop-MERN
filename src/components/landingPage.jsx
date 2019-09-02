@@ -8,8 +8,11 @@ const LandingPage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        let fetch = fetchAll(setImages);
-        return () => fetch;
+        let isSubscribed = true;
+        if (isSubscribed) {
+            fetchAll(setImages);
+        }
+        return () => (isSubscribed = false);
     }, []);
 
     const getPictures = images.sort(s => 0.5 - Math.random()).map(e => (
@@ -18,23 +21,10 @@ const LandingPage = () => {
         </div>
     ));
 
-    /*
-    useEffect(
-        () => {
-             let interval =  setInterval(() => {
-                setImages(images.sort(e => 0.5 - Math.random()));
-            }, 10000);
-            return () => clearInterval(interval);
-        },
-        [images]
-    );
-    */
-
     return (
         <main className="landingpage">
             <h1>Coffe Brew</h1>
             <p>Gives you that special brew-feeling.</p>
-
             <div className="img__container">
                 {images.length === 0 ? <Loader /> : getPictures}
             </div>

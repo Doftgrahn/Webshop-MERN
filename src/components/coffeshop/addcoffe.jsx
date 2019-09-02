@@ -8,19 +8,31 @@ const AddCoffe = ({whenPostSuccess, isVisible, hideForms}) => {
     const [imgURL, setImgURL] = useState("");
     const [info, setInfo] = useState("");
 
+    const [valid, setValid] = useState(true);
+
     const submit = () => {
-        postRequest(name, size, price, imgURL, info, whenPostSuccess);
-        setName("");
-        setSize("");
-        setPrize("");
-        setImgURL("");
-        setInfo("");
+        if (name && size && price && imgURL && info) {
+            setValid(true);
+            postRequest(name, size, price, imgURL, info, whenPostSuccess);
+            setName("");
+            setSize("");
+            setPrize("");
+            setImgURL("");
+            setInfo("");
+            hideForms();
+        } else {
+            setValid(false);
+        }
+    };
+
+    const resetFormError = () => {
+        setValid(true);
         hideForms();
     };
 
     return (
         <section className={`addCoffe ${isVisible ? "active" : "notActive"}`}>
-            <button onClick={hideForms} className="close_btn">
+            <button onClick={resetFormError} className="close_btn">
                 Close
             </button>
             <div className="addCoffe__wrapper">
@@ -68,14 +80,10 @@ const AddCoffe = ({whenPostSuccess, isVisible, hideForms}) => {
                     placeholder="Add Info"
                 />
                 <div className="btn_container">
-                    <button
-                        disabled={
-                            name && size && price && imgURL ? false : true
-                        }
-                        onClick={submit}
-                    >
-                        Send
-                    </button>
+                    {!valid ? (
+                        <span className="error">Please fill in form...</span>
+                    ) : null}
+                    <button onClick={submit}>Send</button>
                 </div>
             </div>
         </section>

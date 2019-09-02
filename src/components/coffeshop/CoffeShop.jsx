@@ -11,9 +11,12 @@ const CoffeShop = ({match}) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        let fetch = fetchAll(setProducts);
+        let isSubscribed = true;
+        if (isSubscribed) {
+            fetchAll(setProducts);
+        }
 
-        return () => fetch;
+        return () => (isSubscribed = false);
     }, []);
 
     const whenPostSuccess = json => {

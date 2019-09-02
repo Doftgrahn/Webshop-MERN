@@ -30,14 +30,12 @@ module.exports = app => {
                         console.error("Could not post");
                         throw err;
                     }
-
-                    client.close();
+                    res.send({
+                        success: true
+                    });
                 });
+                client.close();
             }
         );
-
-        res.send({
-            success: true
-        });
     });
 };

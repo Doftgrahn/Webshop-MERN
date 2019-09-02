@@ -1,6 +1,4 @@
-const uri = require("./secret/secret");
-
-const url = {uri};
+const url = require("./secret/secret");
 
 const settings = {useNewUrlParser: true, useUnifiedTopology: true};
 

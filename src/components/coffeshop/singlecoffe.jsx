@@ -35,7 +35,11 @@ const Coffe = ({match, history}) => {
 
     useEffect(
         () => {
-            fetchSpecificCoffe(match, setCoffeProduct);
+            let isSubscribed = true;
+            if (isSubscribed) {
+                fetchSpecificCoffe(match, setCoffeProduct);
+            }
+            return () => (isSubscribed = false);
         },
         [match]
     );
