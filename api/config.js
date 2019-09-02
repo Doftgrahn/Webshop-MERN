@@ -1,4 +1,4 @@
-import {uri} from "./secret/secret";
+const uri = require("./secret/secret");
 
 const url = {uri};
 
